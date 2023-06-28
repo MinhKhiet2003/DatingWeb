@@ -16,11 +16,13 @@
             <a class="nav-link" (click)="logout()" href="#" routerLinkActive="active">Logout</a>
           </li>
         </ng-container>
-        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
+        </li>
       </ul>
 
-    <div class="dropdown" *ngIf="(accountService.currentUser$| async) as user" ngbDropdown>
-      <a class="dropdown-toggle text-light" ngbDropdownToggle>Welcome {{user?.userName | titlecase}}</a>
+    <div class="dropdown" *ngIf="(accountService.currentUser$| async) as user">
+      <a class="dropdown-toggle text-light dropdown-toggle_hover" ngbDropdownToggle >Welcome {{user?.userName | titlecase}}</a>
 
       <div class="dropdown-menu" ngbDropdownMenu>
         <a href="#" class="dropdown-item">Edit Profile</a>
