@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import { User } from '../_models/user';
+import { enviroment } from '../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = enviroment.apiUrl;
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
   constructor(private http: HttpClient) { }
